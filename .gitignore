@@ -128,3 +128,20 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Firebase files and directories
+.firebase
+.firebaserc
+firebase.json
+firestore.rules
+firestore.indexes.json
+storage.rules
+
+# Firebase Hosting
+/public/*
+
+# Firebase Cloud Functions
+.runtimeconfig.json
+/functions/node_modules
+/functions/lib
+
