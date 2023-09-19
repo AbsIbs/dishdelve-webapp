@@ -59,6 +59,7 @@
 
 .bottomButton {
   @extend .topButton;
+  padding: 1rem 2rem;
   border-radius: 50px;
   gap: 5px;
 }

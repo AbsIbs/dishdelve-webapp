@@ -2,20 +2,79 @@
   font-family: 'Poppins';
 }
 
-.section {
-  background-color: #121212;
-  padding: 1rem 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container {
-  width: var(--container-width);
-  padding: 0 1rem;
+.title {
+  font-size: 2rem;
+  font-weight: 500;
+  color: white;
+  margin: 0;
 }
 
 .desc {
   font-size: 0.9rem;
   color: white;
+  line-height: 175%;
+}
+
+.section {
+  background-color: #121212;
+  padding: 6rem 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: var(--container-width);
+  padding: 0 1rem;
+  display: flex;
+  gap: 5rem;
+}
+
+.leftBox {
+  display: flex;
+  flex-direction: column;
+  flex: 1
+}
+
+.newsletterContainer {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+}
+
+.input {
+  background-color: #00000000;
+  border-color: #ffffff;
+  border-width: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 4px;
+  width: 100%;
+  color: white;
+}
+
+.input::placeholder{
+  color: white;
+}
+
+.rightBox {
+  display: flex;
+  flex: 1.5;
+  align-items: center;
+}
+
+.subscribe {
+  background-color: white;
+  color: #333;
+  width: 100%;
+  border-radius: 4px;
+  border-width: 0;
+}
+
+.subscribe:hover {
+  cursor: pointer;
 }
