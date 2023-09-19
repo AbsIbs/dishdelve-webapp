@@ -6,13 +6,13 @@ body {
   margin: 0;
 }
 
-.site-title {
+.siteTitle {
   font-family: 'Courgette';
   text-decoration: none;
   font-size: 1.5rem;
 }
 
-.site-title:visited {
+.siteTitle:visited {
   text-decoration: none;
   color: white;
 }
@@ -35,17 +35,17 @@ body {
 .container {
   display: flex;
   align-items: center;
-  width: var(--section-width);
+  width: var(--container-width);
   justify-content: space-between;
   padding: 0 1rem;
 }
 
-.hover-underline-animation:hover {
+.hoverUnderlineAnimation:hover {
   color: var(--primary-color)
 }
 
 /* Hover animation */
-.hover-underline-animation {
+.hoverUnderlineAnimation {
   text-decoration: none;
   display: inline-block;
   position: relative;
@@ -54,7 +54,7 @@ body {
   font-family: 'Poppins';
 }
 
-.hover-underline-animation::after {
+.hoverUnderlineAnimation::after {
   content: '';
   position: absolute;
   width: 100%;
@@ -67,7 +67,7 @@ body {
   transition: transform 0.25s ease-out;
 }
 
-.hover-underline-animation:hover::after {
+.hoverUnderlineAnimation:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }

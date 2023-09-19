@@ -1,0 +1,21 @@
+* {
+  font-family: 'Poppins';
+}
+
+.section {
+  background-color: #121212;
+  padding: 1rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: var(--container-width);
+  padding: 0 1rem;
+}
+
+.desc {
+  font-size: 0.9rem;
+  color: white;
+}

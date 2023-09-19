@@ -1,17 +1,17 @@
-import './styles.css'
+import styles from './styles.module.css'
 
 const Navbar = () => {
   return (
-    <nav className="nav" >
-      <div className='container'>
-        <a href="/" className="site-title" >DishDelve</a>
+    <nav className={styles.nav} >
+      <div className={styles.container}>
+        <a href="/" className={styles.siteTitle} >DishDelve</a>
         <ul>
           <li>
-            <a href='/' className='hover-underline-animation'>Home</a>
-            <a href='/' className='hover-underline-animation'>About us</a>
-            <a href='/' className='hover-underline-animation'>Recipes</a>
-            <a href='/' className='hover-underline-animation'>Blogs</a>
-            <a href='/' className='hover-underline-animation'>Contact us</a>
+            <a href='/' className={styles.hoverUnderlineAnimation}>Home</a>
+            <a href='/' className={styles.hoverUnderlineAnimation}>About us</a>
+            <a href='/' className={styles.hoverUnderlineAnimation}>Recipes</a>
+            <a href='/' className={styles.hoverUnderlineAnimation}>Blogs</a>
+            <a href='/' className={styles.hoverUnderlineAnimation}>Contact us</a>
           </li>
         </ul>
       </div>

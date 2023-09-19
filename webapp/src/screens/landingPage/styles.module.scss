@@ -1,0 +1,20 @@
+* {
+  font-family: 'Poppins';
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  background-image: url("../../assets/couscousImage.png");
+  height: 700px;
+  background-size: cover;
+  align-items: center;
+  background-position: center;
+}
+
+.container {
+  width: var(--container-width);
+  padding: 0 1rem;
+}
+
+

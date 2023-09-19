@@ -1,0 +1,65 @@
+* {
+  font-family: 'Poppins';
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../../assets/couscousImage.png");
+  background-size: cover;
+  background-position: center;
+  height: 700px;
+}
+
+.container {
+  width: var(--container-width);
+  padding: 0 1rem;
+}
+
+.card {
+  padding: 2rem 3rem;
+  background-color: white;
+  border-radius: 16px;
+  width: 50%;
+  flex-direction: column;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.topButton {
+  background-color: var(--primary-color);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  color: white;
+  font-size: 14px;
+  display: inline-flex;;
+  align-items: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.desc {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 175%;
+}
+
+.profileImage {
+  height: 45px;
+  width: 45px;
+  border-radius: 25px;
+  background-image: url("../../../assets/logo.png");
+  background-size: cover;
+}
+
+.bottomButton {
+  @extend .topButton;
+  border-radius: 50px;
+  gap: 5px;
+}
+

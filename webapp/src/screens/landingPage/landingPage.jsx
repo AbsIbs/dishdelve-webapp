@@ -1,13 +1,14 @@
-import { useState } from 'react'
-import './styles.css'
+import styles from './styles.module.scss'
+import RecentRecipe from '../../components/LandingPage/RecentRecipe/recentRecipe'
+import Newsletter from '../../components/LandingPage/Newsletter/newsLetter'
 
 const LandingPage = () => {
   return (
-    <div className='section' >
-      <div className='container' >
-        <p>Hello world</p>
-      </div>
-    </div>
+    <>
+      {/* Latest recipe section */}
+      <RecentRecipe />
+      <Newsletter />
+    </>
   )
 };
 
