@@ -1,0 +1,42 @@
+* {
+  font-family: 'Poppins';
+  font-weight: 500;
+}
+
+.section {
+  padding: 1rem 1rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem
+}
+
+.outerContainer {
+  display: flex;
+  gap: 2rem;
+  height: 800px
+}
+
+.recipeContainer {
+  display: flex;
+  padding: 0 1rem 4rem 1rem;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.title {
+  font-size: 2rem;
+  background-color: white;
+  color: black;
+  margin: 0;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  display: inline-flex;
+}
+
+.category {
+  font-size: 0.9rem;
+  background-color: black;
+  color: white;
+  margin: 0;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  display: inline-flex;
+}

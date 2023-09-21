@@ -8,6 +8,7 @@ import Newsletter from '../../components/LandingPage/Newsletter/newsLetter'
 import LargeBlog from '../../components/LandingPage/Blogs/largeBlog/largeBlog';
 import Menu from '../../components/LandingPage/Menu/menu';
 import MiniBlog from '../../components/LandingPage/Blogs/miniBlog/miniBlog'
+import LatestRecipes from '../../components/LandingPage/LatestRecipes/latestRecipes'
 
 const LandingPage = () => {
 
@@ -69,6 +70,8 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+      {/* Latest Recipes */}
+      <LatestRecipes />
     </>
   )
 };
