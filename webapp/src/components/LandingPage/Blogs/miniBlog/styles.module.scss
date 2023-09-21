@@ -1,0 +1,40 @@
+* {
+  font-family: 'Poppins';
+}
+
+.container {
+  display: flex;
+  height: 125px;
+  gap: 0.5rem;
+}
+
+.image {
+  border-radius: 4px;
+  height: 100%;
+  max-width: 100%;
+}
+
+.infoContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 0.9rem;
+  line-height: 175%;
+  margin: 0;
+  /* Truncate the text */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.date {
+  font-size: 0.8rem;
+  font-weight: 300;
+  margin: 0;
+}

@@ -1,0 +1,22 @@
+* {
+  font-family: 'Poppins';
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  border-width: 0.5px;
+  border-color: #00000050;
+  border-style: solid;
+  padding: 1rem 1rem;
+  width: 300px;
+  align-items: center;
+  gap: 1rem;
+}
+
+.title {
+  font-size: 1rem;
+  margin: -1.8rem 0 0 0;
+  background-color: white;
+  padding: 0 0.5rem 0 0.5rem;
+}
