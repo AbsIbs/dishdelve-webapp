@@ -33,3 +33,22 @@
   font-size: 0.9rem;
   text-align: center;
 }
+
+.recipesContainer {
+  @extend .container;
+  max-width: var(--container-width);
+  width: auto;
+}
+
+.difficultiesContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem
+}
+
+.difficulty {
+  padding: 1rem 3rem 1rem 3rem;
+  border-radius: 50px;
+  border-width: 0px;
+  color: white;
+}

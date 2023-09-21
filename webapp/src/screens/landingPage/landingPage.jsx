@@ -9,10 +9,33 @@ import LargeBlog from '../../components/LandingPage/Blogs/largeBlog/largeBlog';
 import Menu from '../../components/LandingPage/Menu/menu';
 import MiniBlog from '../../components/LandingPage/Blogs/miniBlog/miniBlog'
 import LatestRecipes from '../../components/LandingPage/LatestRecipes/latestRecipes'
+import Recipe from '../../components/LandingPage/Recipe/recipe'
+
 
 const LandingPage = () => {
 
   const [logoURL, setLogoURL] = useState(null)
+
+  // Difficulties
+  const [difficulties, setDifficulties] = useState({
+    'Simple': true,
+    'Intermediate': false,
+    'Advanced': false
+  })
+  // Toggle difficulty
+  const toggleDifficulty = (difficulty) => {
+    setDifficulties(prevState => {
+      const nextState = {}
+      Object.keys(prevState).forEach(key => {
+        if (key == difficulty) {
+          nextState[key] = true
+        } else {
+          nextState[key] = false
+        }
+      })
+      return nextState
+    })
+  };
 
   // Dummy data
   const desc = 'Unlock the magic of spices and elevate your culinary prowess! Our guide will demystify spices, empowering you to create tantalizing dishes. Learn the art of seasoning...'
@@ -72,6 +95,32 @@ const LandingPage = () => {
       </div>
       {/* Latest Recipes */}
       <LatestRecipes />
+      {/* Recipes Filter */}
+      <div className={styles.section} >
+        <div className={styles.recipesContainer} style={{padding: '5rem 1rem 5rem 1rem'}} >
+          {/* Difficulty list */}
+          <Menu title={'DIFFICULTY'} style={{ width: 'auto' }} >
+            <div className={styles.difficultiesContainer} >
+              <button type='button' className={styles.difficulty} onClick={() => toggleDifficulty('Simple')} style={{ backgroundColor: difficulties['Simple'] ? '#E84A4A' : '#808080' }}>Simple</button>
+              <button type='button' className={styles.difficulty} onClick={() => toggleDifficulty('Intermediate')} style={{ backgroundColor: difficulties['Intermediate'] ? '#E84A4A' : '#808080' }}>Intermediate</button>
+              <button type='button' className={styles.difficulty} onClick={() => toggleDifficulty('Advanced')} style={{ backgroundColor: difficulties['Advanced'] ? '#E84A4A' : '#808080' }}>Advanced</button>
+            </div>
+          </Menu>
+        </div>
+      </div>
+      {/* Recipes */}
+      <div className={styles.section} >
+        <div className={styles.container} style={{padding: '1rem 1rem 1rem 1rem'}} >
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem'}} >
+            <Recipe title={'Air Fryer Chicken Breast '} desc={desc} imageURL={imageURL} category={'Lunch/Dinner'} difficulty={'Simple'} />
+            <Recipe title={'Air Fryer Chicken Breast '} desc={desc} imageURL={imageURL} category={'Lunch/Dinner'} difficulty={'Simple'} />
+            <Recipe title={'Air Fryer Chicken Breast '} desc={desc} imageURL={imageURL} category={'Lunch/Dinner'} difficulty={'Simple'} />
+            <Recipe title={'Air Fryer Chicken Breast '} desc={desc} imageURL={imageURL} category={'Lunch/Dinner'} difficulty={'Simple'} />
+            <Recipe title={'Air Fryer Chicken Breast '} desc={desc} imageURL={imageURL} category={'Lunch/Dinner'} difficulty={'Simple'} />
+          </div>
+
+        </div>
+      </div>
     </>
   )
 };
