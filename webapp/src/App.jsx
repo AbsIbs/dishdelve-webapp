@@ -2,7 +2,7 @@ import { useState } from 'react'
 // Screens
 import LandingPage from './screens/landingPage/landingPage';
 // Components
-import Navbar from './components/Navbar/Navbar';
+import Navbar from './components/Global/Navbar/Navbar';
 // Import your global stylesheet
 import './global.css';
 

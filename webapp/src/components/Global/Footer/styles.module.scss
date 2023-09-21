@@ -1,0 +1,27 @@
+* {
+  font-family: 'Poppins';
+}
+
+.section {
+  margin-top: 100px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: var(--container-width);
+  width: 100%;
+  display: flex;
+  padding: 1rem;
+  margin: 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.iconContainer {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}

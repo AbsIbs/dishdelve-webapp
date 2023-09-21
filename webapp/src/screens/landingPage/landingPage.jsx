@@ -10,7 +10,7 @@ import Menu from '../../components/LandingPage/Menu/menu';
 import MiniBlog from '../../components/LandingPage/Blogs/miniBlog/miniBlog'
 import LatestRecipes from '../../components/LandingPage/LatestRecipes/latestRecipes'
 import Recipe from '../../components/LandingPage/Recipe/recipe'
-
+import Footer from '../../components/Global/Footer/footer'
 
 const LandingPage = () => {
 
@@ -118,9 +118,9 @@ const LandingPage = () => {
             <Recipe title={'Air Fryer Chicken Breast '} desc={desc} imageURL={imageURL} category={'Lunch/Dinner'} difficulty={'Simple'} />
             <Recipe title={'Air Fryer Chicken Breast '} desc={desc} imageURL={imageURL} category={'Lunch/Dinner'} difficulty={'Simple'} />
           </div>
-
         </div>
       </div>
+      <Footer />
     </>
   )
 };
