@@ -27,6 +27,12 @@
   gap: 1.5rem;
 }
 
+@media (width < 769px) {
+  .card {
+    width: 100%;
+  }
+}
+
 .topButton {
   background-color: var(--primary-color);
   padding: 0.5rem 1rem;

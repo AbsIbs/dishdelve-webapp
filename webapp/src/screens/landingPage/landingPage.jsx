@@ -17,13 +17,16 @@ const LandingPage = () => {
   const [logoURL, setLogoURL] = useState(null)
 
   // Difficulties
-  const [difficulties, setDifficulties] = useState({
+  const difficulties = ['Simple', 'Intermediate', 'Advanced']
+  const [activeDifficulty, setActiveDifficulty] = useState(difficulties[0])
+
+  /* const [difficulties, setDifficulties] = useState({
     'Simple': true,
     'Intermediate': false,
     'Advanced': false
-  })
+  }) */
   // Toggle difficulty
-  const toggleDifficulty = (difficulty) => {
+  /* const toggleDifficulty = (difficulty) => {
     setDifficulties(prevState => {
       const nextState = {}
       Object.keys(prevState).forEach(key => {
@@ -35,7 +38,7 @@ const LandingPage = () => {
       })
       return nextState
     })
-  };
+  }; */
 
   // Dummy data
   const desc = 'Unlock the magic of spices and elevate your culinary prowess! Our guide will demystify spices, empowering you to create tantalizing dishes. Learn the art of seasoning...'
@@ -60,7 +63,7 @@ const LandingPage = () => {
       <Newsletter />
       {/* Latest Blogs section and Blogs */}
       <div className={styles.section} >
-        <div className={styles.container}>
+        <div className={styles.latestBlogsContainer}>
           {/* Recent blogs */}
           <div className={styles.leftColumn}>
             <LargeBlog category={category} desc={desc} imageURL={imageURL} />
@@ -70,12 +73,12 @@ const LandingPage = () => {
             <LargeBlog category={category} desc={desc} imageURL={imageURL} />
             <LargeBlog category={category} desc={desc} imageURL={imageURL} />
           </div>
-          {/* About us */}
+          {/* About us | Blog Categories and Latest Blogs */}
           <div className={styles.rightColumn}>
             <Menu title={'ABOUT US'} >
               <img src={logoURL} style={{ height: '100px', borderRadius: '50px' }} />
-              <p style={{ textAlign: 'center' }} >Join us and embark on a culinary journey filled with tasty delights! </p>
-              <p style={{ fontFamily: 'Courgette' }} >DishDelve team</p>
+              <p style={{ textAlign: 'center', fontSize: '0.9rem', margin: '0' }} >Join us and embark on a culinary journey filled with tasty delights! </p>
+              <p style={{ fontFamily: 'Courgette', margin: '0' }} >DishDelve team</p>
             </Menu>
             <Menu title={'BLOG CATEGORIES'} >
               <p className={styles.blogCategoryMenuItem} >Food and Travel </p>
@@ -88,30 +91,16 @@ const LandingPage = () => {
             <Menu title={'LATEST BLOGS'} >
               <MiniBlog title={'Rise and Dine: 5 Easy-Peasy Nutritious recipes to kickstart the morning!'} date={'7th September 2023'} imageURL={imageURL} />
               <MiniBlog title={'Rise and Dine: 5 Easy-Peasy Nutritious recipes to kickstart the morning!'} date={'7th September 2023'} imageURL={imageURL} />
-              <MiniBlog title={'Rise and Dine: 5 Easy-Peasy Nutritious recipes to kickstart the morning!'} date={'7th September 2023'} imageURL={imageURL} />
             </Menu>
           </div>
         </div>
       </div>
       {/* Latest Recipes */}
       <LatestRecipes />
-      {/* Recipes Filter */}
-      <div className={styles.section} >
-        <div className={styles.recipesContainer} style={{padding: '5rem 1rem 5rem 1rem'}} >
-          {/* Difficulty list */}
-          <Menu title={'DIFFICULTY'} style={{ width: 'auto' }} >
-            <div className={styles.difficultiesContainer} >
-              <button type='button' className={styles.difficulty} onClick={() => toggleDifficulty('Simple')} style={{ backgroundColor: difficulties['Simple'] ? '#E84A4A' : '#808080' }}>Simple</button>
-              <button type='button' className={styles.difficulty} onClick={() => toggleDifficulty('Intermediate')} style={{ backgroundColor: difficulties['Intermediate'] ? '#E84A4A' : '#808080' }}>Intermediate</button>
-              <button type='button' className={styles.difficulty} onClick={() => toggleDifficulty('Advanced')} style={{ backgroundColor: difficulties['Advanced'] ? '#E84A4A' : '#808080' }}>Advanced</button>
-            </div>
-          </Menu>
-        </div>
-      </div>
       {/* Recipes */}
       <div className={styles.section} >
-        <div className={styles.container} style={{padding: '1rem 1rem 1rem 1rem'}} >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem'}} >
+        <div className={styles.container} style={{ padding: '1rem 1rem 1rem 1rem' }} >
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }} >
             <Recipe title={'Air Fryer Chicken Breast '} desc={desc} imageURL={imageURL} category={'Lunch/Dinner'} difficulty={'Simple'} />
             <Recipe title={'Air Fryer Chicken Breast '} desc={desc} imageURL={imageURL} category={'Lunch/Dinner'} difficulty={'Simple'} />
             <Recipe title={'Air Fryer Chicken Breast '} desc={desc} imageURL={imageURL} category={'Lunch/Dinner'} difficulty={'Simple'} />

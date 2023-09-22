@@ -9,7 +9,9 @@ const LargeBlog = (props) => {
 
   return (
     <div className={styles.container}>
-      <img className={styles.image} src={props.imageURL} />
+      <div style={{flex: '1'}} >
+        <img className={styles.image} src={props.imageURL} />
+      </div>
       <div className={styles.contentContainer}>
         <p className={styles.title} >Top Spices from around the world</p>
         <p className={styles.date} >September 7th 2023</p>

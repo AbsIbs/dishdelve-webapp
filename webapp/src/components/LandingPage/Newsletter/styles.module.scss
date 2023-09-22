@@ -29,6 +29,13 @@
   gap: 5rem;
 }
 
+@media (width < 769px) {
+  .container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+}
+
 .leftBox {
   display: flex;
   flex-direction: column;

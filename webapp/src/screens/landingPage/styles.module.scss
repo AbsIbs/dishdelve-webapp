@@ -15,10 +15,24 @@
   display: flex;
 }
 
+.latestBlogsContainer {
+  @extend .container;
+  gap: 1rem;
+}
+
+@media (width < 769px) {
+  .latestBlogsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+;
+
 .leftColumn {
-  flex: 2;
+  flex: 4;
   display: flex;
-  gap: 4rem;
+  gap: 1rem;
   flex-direction: column;
 }
 
@@ -26,7 +40,17 @@
   @extend .leftColumn;
   flex: 1;
   align-items: flex-end;
+  display: flex;
+  gap: 3rem;
 }
+
+@media (width < 769px) {
+  .rightColumn {
+    padding-top: 2rem;
+  }
+}
+
+;
 
 .blogCategoryMenuItem {
   margin: 0;
@@ -43,12 +67,13 @@
 .difficultiesContainer {
   display: flex;
   flex-direction: row;
-  gap: 2rem
+  gap: 1rem;
+  width: 100%;
 }
 
 .difficulty {
-  padding: 1rem 3rem 1rem 3rem;
-  border-radius: 50px;
   border-width: 0px;
-  color: white;
+  color: #333;
+  background-color: transparent;
+  font-size: 1.25rem;
 }

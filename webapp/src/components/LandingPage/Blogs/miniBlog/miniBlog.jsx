@@ -7,8 +7,8 @@ const MiniBlog = (props) => {
         <img className={styles.image} src={props.imageURL} />
       </div>
       <div className={styles.infoContainer} >
-        <p className={styles.title} >{props.title}</p>
         <p className={styles.date} >{props.date}</p>
+        <p className={styles.title} >{props.title}</p>
       </div>
     </div>
   )

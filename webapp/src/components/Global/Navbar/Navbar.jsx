@@ -9,8 +9,6 @@ const Navbar = () => {
           <li>
             <a href='/' className={styles.hoverUnderlineAnimation}>Home</a>
             <a href='/' className={styles.hoverUnderlineAnimation}>About us</a>
-            <a href='/' className={styles.hoverUnderlineAnimation}>Recipes</a>
-            <a href='/' className={styles.hoverUnderlineAnimation}>Blogs</a>
             <a href='/' className={styles.hoverUnderlineAnimation}>Contact us</a>
           </li>
         </ul>

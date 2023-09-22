@@ -13,7 +13,8 @@
   border-bottom-left-radius: 8px;
   width: 100%;
   height: 100%;
-  flex: 3
+  flex: 3;
+  object-fit: cover;
 }
 
 .categoryContainer {
@@ -25,8 +26,8 @@
 
 .category {
   padding: 0.5rem 2rem 0.5rem 2rem;
-  background-color: #EC6F6F;
-  border-radius: 50px;
+  background-color: var(--primary-color);
+  border-radius: 8px;
   color: white;
   font-size: 0.8rem;
 }
@@ -42,7 +43,7 @@
   padding: 1rem 2.5rem 1rem 2.5rem;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
-  gap: 1.5rem
+  gap: 1rem
 }
 
 .title {
@@ -66,4 +67,22 @@
   align-items: center;
   gap: 0.5rem;
   cursor: pointer;
+}
+
+@media (width < 769px) {
+  .image {
+    max-height: 500px;
+    border-radius: 8px
+  };
+  .container {
+    flex-direction: column;
+    height: auto;
+  };
+  .contentContainer {
+    padding: 1rem;
+    border-width: 0;
+  };
+  .title {
+    font-size: 1.5rem;
+  }
 }

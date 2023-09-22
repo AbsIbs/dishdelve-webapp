@@ -28,14 +28,14 @@ const LatestRecipes = () => {
     <div className={styles.section} >
       <div className={styles.outerContainer} >
         <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'4'} />
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem', flex: '6' }} >
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', flex: '6' }} >
           <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'1'} />
           <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'1'} />
         </div>
       </div>
       <div className={styles.outerContainer} >
-        <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'7'} />
-        <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'3'} />
+        <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'6'} />
+        <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'4'} />
       </div>
       <div className={styles.outerContainer} >
         <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'1'} />
