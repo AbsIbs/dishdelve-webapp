@@ -21,12 +21,12 @@ body {
   background-color: #121212;
   align-items: center;
   color: white;
-  padding: 0 1rem;
+  padding: 1rem;
   display: flex;
   justify-content: center; /* Center horizontally */
 }
 
-.nav li {
+.nav li { 
   list-style: none;
   display: flex;
   gap: 2rem;
@@ -70,4 +70,32 @@ body {
 .hoverUnderlineAnimation:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+.icon {
+  display: none;
+}
+
+.menuItems {
+  display: block;
+  padding: 0;
+}
+
+.iconAndTitleContainer {
+  display: flex;
+  gap: 1rem;
+  justify-self: center;
+}
+
+@media (width < 577px) {
+  .icon {
+    display: inline-block;
+  }
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .menuItems li {
+    flex-direction: column;
+  }
 }
