@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from './styles.module.css'
 import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
@@ -42,13 +43,13 @@ const Navbar = () => {
           <label className={styles.icon} onClick={() => { setMenuVisible(!menuVisible) }} >
             <MenuIcon />
           </label>
-          <a href="/" className={styles.siteTitle} >DishDelve</a>
+          <Link to="/" className={styles.siteTitle} >DishDelve</Link>
         </div>
         <ul className={styles.menuItems} style={menuStyle} >
           <li>
-            <a href='/' className={styles.hoverUnderlineAnimation}>Home</a>
-            <a href='/' className={styles.hoverUnderlineAnimation}>About us</a>
-            <a href='/' className={styles.hoverUnderlineAnimation}>Contact us</a>
+            <Link to='/' className={styles.hoverUnderlineAnimation}>Home</Link>
+            <Link to='/' className={styles.hoverUnderlineAnimation}>About us</Link>
+            <Link to='/contact-us' className={styles.hoverUnderlineAnimation}>Contact us</Link>
           </li>
         </ul>
       </div>
