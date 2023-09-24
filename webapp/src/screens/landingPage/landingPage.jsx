@@ -11,34 +11,26 @@ import MiniBlog from '../../components/LandingPage/Blogs/miniBlog/miniBlog'
 import LatestRecipes from '../../components/LandingPage/LatestRecipes/latestRecipes'
 import Recipe from '../../components/LandingPage/Recipe/recipe'
 import Footer from '../../components/Global/Footer/footer'
+// Functions
+import { getRecipes } from '../../logic/backendLogic'
 
 const LandingPage = () => {
-
   const [logoURL, setLogoURL] = useState(null)
+  const [recipes, setRecipes] = useState([])
 
-  // Difficulties
-  const difficulties = ['Simple', 'Intermediate', 'Advanced']
-  const [activeDifficulty, setActiveDifficulty] = useState(difficulties[0])
-
-  /* const [difficulties, setDifficulties] = useState({
-    'Simple': true,
-    'Intermediate': false,
-    'Advanced': false
-  }) */
-  // Toggle difficulty
-  /* const toggleDifficulty = (difficulty) => {
-    setDifficulties(prevState => {
-      const nextState = {}
-      Object.keys(prevState).forEach(key => {
-        if (key == difficulty) {
-          nextState[key] = true
-        } else {
-          nextState[key] = false
-        }
+  const getRecipesHandler = () => {
+    getRecipes(15)
+      .then((data) => {
+        setRecipes(data)
       })
-      return nextState
-    })
-  }; */
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+  // Retrieve our recipes
+  useEffect(() => {
+    getRecipesHandler()
+  }, [])
 
   // Dummy data
   const desc = 'Unlock the magic of spices and elevate your culinary prowess! Our guide will demystify spices, empowering you to create tantalizing dishes. Learn the art of seasoning...'
@@ -49,9 +41,6 @@ const LandingPage = () => {
     getDownloadURL(ref(storage, 'seazon/img/logo.png'))
       .then((url) => {
         setLogoURL(url)
-      })
-      .then(() => {
-        console.log('got image')
       })
   }, [])
 
@@ -96,16 +85,22 @@ const LandingPage = () => {
         </div>
       </div>
       {/* Latest Recipes */}
-      <LatestRecipes />
+      {recipes.length > 0 ? (
+        <LatestRecipes recipes={recipes.slice(0, 7)} />
+      ) : (
+        <p>Loading...</p>
+      )}
       {/* Recipes */}
       <div className={styles.section} >
         <div className={styles.container} style={{ padding: '1rem 1rem 1rem 1rem' }} >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }} >
-            <Recipe title={'Air Fryer Chicken Breast '} desc={desc} imageURL={imageURL} category={'Lunch/Dinner'} difficulty={'Simple'} />
-            <Recipe title={'Air Fryer Chicken Breast '} desc={desc} imageURL={imageURL} category={'Lunch/Dinner'} difficulty={'Simple'} />
-            <Recipe title={'Air Fryer Chicken Breast '} desc={desc} imageURL={imageURL} category={'Lunch/Dinner'} difficulty={'Simple'} />
-            <Recipe title={'Air Fryer Chicken Breast '} desc={desc} imageURL={imageURL} category={'Lunch/Dinner'} difficulty={'Simple'} />
-            <Recipe title={'Air Fryer Chicken Breast '} desc={desc} imageURL={imageURL} category={'Lunch/Dinner'} difficulty={'Simple'} />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', padding: '6rem 0' }} >
+            {recipes.slice(7, recipes.length).map((data, index) => {
+              return (
+                <div key={index} >
+                  <Recipe title={data.title} desc={data.chefsNotes} imageURL={data.coverImage} category={data.mealType} difficulty={data.difficulty} />
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>

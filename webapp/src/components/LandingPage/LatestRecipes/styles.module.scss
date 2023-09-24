@@ -32,7 +32,7 @@
   
 };
 
-.category {
+.difficulty {
   font-size: 0.9rem;
   background-color: black;
   color: white;
@@ -46,6 +46,31 @@
   display: flex;
 }
 
+.recipesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.gridItem {
+  height: 500px;
+  display: flex;
+}
+
+.gridItem:nth-child(1) {
+  grid-column: span 2 ;
+}
+
+.gridItem:nth-child(2) {
+  grid-column: span 1 ;
+}
+
+.gridItem:nth-child(4) {
+  grid-column: span 2 ;
+}
+
+
 @media (width < 997px) {
   .category {
     font-size: 0.8rem;
@@ -55,6 +80,9 @@
   };
   .outerContainer {
     height: 600px;
+  }
+  .gridItem {
+    height: 400px;
   }
 };
 
@@ -68,4 +96,27 @@
   .outerContainer {
     height: 500px;
   }
+  .gridItem {
+    height: 350px;
+  }
 };
+
+@media (width < 577px) {
+  .gridItem {
+    height: 350px;
+  }
+  .recipesGrid {
+    grid-template-columns: 1fr;
+  }
+  .gridItem:nth-child(1) {
+    grid-column: span 1 ;
+  }
+  
+  .gridItem:nth-child(2) {
+    grid-column: span 1 ;
+  }
+  
+  .gridItem:nth-child(4) {
+    grid-column: span 1 ;
+  }
+}

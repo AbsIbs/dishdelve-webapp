@@ -1,9 +1,16 @@
 import { useState, useEffect } from 'react';
 import styles from './styles.module.scss'
 
-const LatestRecipes = () => {
+const LatestRecipes = (props) => {
 
-  //Resoinsive layout change
+  //Recipes
+  const recipes = props.recipes
+
+  useEffect(() => {
+    console.log(`here are the recipes! ${recipes} and length is ${recipes.length}`)
+  }, [])
+
+  //Resoponsive layout change
   const [mobileLayout, setMobileLayout] = useState(true)
 
   // Event listener
@@ -29,8 +36,6 @@ const LatestRecipes = () => {
     };
   }, []);
 
-  const imageURL = 'https://firebasestorage.googleapis.com/v0/b/seazon-app-mvp.appspot.com/o/recipes%2F7b5094c9-6943-4923-83e9-a9dd130da291%2FcoverImage.png?alt=media&token=8f9e4a0a-0fb8-4e90-9185-8bc6765a6878'
-
   const Recipe = (props) => {
     const recipeStyle = {
       backgroundImage: `url(${props.imageURL})`,
@@ -42,7 +47,7 @@ const LatestRecipes = () => {
     return (
       <div className={styles.recipeContainer} style={recipeStyle} >
         <div>
-          <span className={styles.category} >{props.category}</span>
+          <span className={styles.difficulty} >{props.difficulty}</span>
         </div>
         <div>
           <span className={styles.title} >{props.title}</span>
@@ -53,49 +58,44 @@ const LatestRecipes = () => {
 
   return (
     <div className={styles.section} >
-      {mobileLayout ?
+      {/* {mobileLayout ?
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }} >
-          <div className={styles.mobileLayoutContainer}>
-            <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'1'} />
-          </div>
-          <div className={styles.mobileLayoutContainer}>
-            <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'1'} />
-          </div>
-          <div className={styles.mobileLayoutContainer}>
-            <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'1'} />
-          </div>
-          <div className={styles.mobileLayoutContainer}>
-            <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'1'} />
-          </div>
-          <div className={styles.mobileLayoutContainer}>
-            <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'1'} />
-          </div>
-          <div className={styles.mobileLayoutContainer}>
-            <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'1'} />
-          </div>
-          <div className={styles.mobileLayoutContainer}>
-            <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'1'} />
-          </div>
+          {recipes.map((data, index) => {
+            return (
+              <div key={index} className={styles.mobileLayoutContainer}>
+                <Recipe title={data.title} difficulty={data.difficulty} imageURL={data.coverImage} flex={'1'} />
+              </div>
+            )
+          })}
         </div> :
         <>
           <div className={styles.outerContainer} >
-            <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'1'} />
+            <Recipe title={recipes[0].title} difficulty={recipes[0].difficulty} imageURL={recipes[0].coverImage} flex={'1'} />
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', flex: '1' }} >
-              <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'1'} />
-              <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'1'} />
+              <Recipe title={recipes[1].title} difficulty={recipes[1].difficulty} imageURL={recipes[1].coverImage} flex={'1'} />
+              <Recipe title={recipes[2].title} difficulty={recipes[2].difficulty} imageURL={recipes[2].coverImage} flex={'1'} />
             </div>
           </div>
           <div className={styles.outerContainer} >
-            <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'6'} />
-            <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'4'} />
+            <Recipe title={recipes[3].title} difficulty={recipes[3].difficulty} imageURL={recipes[3].coverImage} flex={'6'} />
+            <Recipe title={recipes[4].title} difficulty={recipes[4].difficulty} imageURL={recipes[4].coverImage} flex={'4'} />
           </div>
           <div className={styles.outerContainer} >
-            <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'1'} />
-            <Recipe title={'Sesame Chicken'} category={'Intermediate'} imageURL={imageURL} flex={'1'} />
+            <Recipe title={recipes[5].title} difficulty={recipes[5].difficulty} imageURL={recipes[5].coverImage} flex={'1'} />
+            <Recipe title={recipes[6].title} difficulty={recipes[6].difficulty} imageURL={recipes[6].coverImage} flex={'1'} />
           </div>
-        </>}
+        </>} */}
+      <div className={styles.recipesGrid} >
+        {recipes.map((data, index) => {
+          return (
+            <div key={index} className={styles.gridItem}>
+              <Recipe title={data.title} difficulty={data.difficulty} imageURL={data.coverImage} flex={'1'} />
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 };
 
-export default LatestRecipes
+export default LatestRecipes;
