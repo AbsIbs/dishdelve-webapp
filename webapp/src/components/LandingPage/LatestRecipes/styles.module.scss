@@ -41,6 +41,11 @@
   display: inline-flex;
 };
 
+.mobileLayoutContainer {
+  height: 400px;
+  display: flex;
+}
+
 @media (width < 997px) {
   .category {
     font-size: 0.8rem;

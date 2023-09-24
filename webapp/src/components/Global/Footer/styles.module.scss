@@ -25,3 +25,14 @@
   justify-content: center;
   align-items: center;
 }
+
+@media (width < 577px) {
+  .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .text {
+    text-align: center;
+    margin: 0;
+  }
+}

@@ -27,12 +27,6 @@
   gap: 1.5rem;
 }
 
-@media (width < 769px) {
-  .card {
-    width: 100%;
-  }
-}
-
 .topButton {
   background-color: var(--primary-color);
   padding: 0.5rem 1rem;
@@ -70,3 +64,24 @@
   gap: 5px;
 }
 
+@media (width < 998px) {
+  .card {
+    width: 100%;
+  }
+}
+
+@media (width < 577px) {
+  .title {
+    font-size: 1.5rem;
+  }
+  .card {
+    gap: 1rem;
+    padding: 1.5rem;
+    border-radius: 4px;
+  }
+  .bottomButton {
+    padding: 1rem 0;
+    background-color: transparent;
+    color: var(--primary-color)
+  }
+}

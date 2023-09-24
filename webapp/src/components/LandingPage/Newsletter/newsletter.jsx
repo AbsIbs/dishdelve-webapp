@@ -12,7 +12,7 @@ const Newsletter = () => {
       <div className={styles.container} >
         <div className={styles.leftBox} >
           <div className={styles.newsletterContainer} >
-            <ForwardToInboxIcon fontSize='large' style={{ color: 'white' }} />
+            <ForwardToInboxIcon style={{ color: 'white' }} />
             <p className={styles.title} >Subscribe to our newsletter!</p>
           </div>
           <p className={styles.desc} >Be sure to subscribe to our blog to get the latest recipes, cooking lessons, and mouth-watering culinary inspiration delivered straight to your inbox! 🍽️🥗🍜🍪🥂</p>

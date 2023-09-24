@@ -16,7 +16,7 @@ const Navbar = () => {
   useEffect(() => {
     const handleResize = () => {
       // Toggle menu visibility based on screen width
-      if (window.innerWidth <= 576) {
+      if (window.innerWidth <= 577) {
         setMenuVisible(false);
       } else {
         setMenuVisible(true);

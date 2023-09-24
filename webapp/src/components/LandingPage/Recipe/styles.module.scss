@@ -71,15 +71,16 @@
 
 @media (width < 769px) {
   .image {
-    max-height: 500px;
+    height: auto;
     border-radius: 8px
   };
   .container {
     flex-direction: column;
     height: auto;
+    gap: 1rem;
   };
   .contentContainer {
-    padding: 1rem;
+    padding: 1rem 0;
     border-width: 0;
   };
   .title {

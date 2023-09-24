@@ -85,3 +85,21 @@
 .subscribe:hover {
   cursor: pointer;
 }
+
+@media (width < 577px) {
+  .newsletterContainer {
+    flex-direction: column;
+  }
+  .title {
+    text-align: center;
+  }
+  .desc {
+    text-align: center;
+  }
+  .form {
+    flex-direction: column;
+  }
+  .subscribe {
+    padding: 1rem;
+  }
+}

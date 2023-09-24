@@ -53,3 +53,11 @@
   font-weight: 300;
   margin: 0;
 }
+
+@media (width < 577px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+    
+  }
+}
