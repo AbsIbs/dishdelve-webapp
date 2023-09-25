@@ -48,7 +48,7 @@ const Navbar = () => {
         <ul className={styles.menuItems} style={menuStyle} >
           <li>
             <Link to='/' className={styles.hoverUnderlineAnimation}>Home</Link>
-            <Link to='/' className={styles.hoverUnderlineAnimation}>About us</Link>
+            <Link to='/about-us' className={styles.hoverUnderlineAnimation}>About us</Link>
             <Link to='/contact-us' className={styles.hoverUnderlineAnimation}>Contact us</Link>
           </li>
         </ul>

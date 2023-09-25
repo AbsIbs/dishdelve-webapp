@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import styles from './styles.module.scss'
 // Components
 import RecentRecipe from '../../components/LandingPage/RecentRecipe/recentRecipe'
-import Newsletter from '../../components/LandingPage/Newsletter/newsLetter'
+import Newsletter from '../../components/Global/Newsletter/newsletter'
 import LargeBlog from '../../components/LandingPage/Blogs/largeBlog/largeBlog';
 import Menu from '../../components/LandingPage/Menu/menu';
 import MiniBlog from '../../components/LandingPage/Blogs/miniBlog/miniBlog'
@@ -92,7 +92,7 @@ const LandingPage = () => {
       )}
       {/* Recipes */}
       <div className={styles.section} >
-        <div className={styles.container} style={{ padding: '1rem 1rem 1rem 1rem' }} >
+        <div className={styles.container} style={{ padding: '1rem' }} >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', padding: '6rem 0' }} >
             {recipes.slice(7, recipes.length).map((data, index) => {
               return (

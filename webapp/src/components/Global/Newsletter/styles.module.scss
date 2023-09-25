@@ -29,13 +29,6 @@
   gap: 5rem;
 }
 
-@media (width < 769px) {
-  .container {
-    flex-direction: column;
-    gap: 3rem;
-  }
-}
-
 .leftBox {
   display: flex;
   flex-direction: column;
@@ -90,16 +83,26 @@
   .newsletterContainer {
     flex-direction: column;
   }
+  .form {
+    flex-direction: column;
+  }
+  .subscribe {
+    padding: 1rem;
+  }
+}
+
+@media (width < 769px) {
   .title {
     text-align: center;
   }
   .desc {
     text-align: center;
   }
-  .form {
+  .container {
     flex-direction: column;
+    gap: 3rem;
   }
-  .subscribe {
-    padding: 1rem;
+  .leftBox {
+    align-items: center;
   }
 }

@@ -51,6 +51,14 @@
   max-width: 100%;
 }
 
+.button {
+  background-color: black;
+  color: white;
+  border-width: 0;
+  border-radius: 4px;
+  padding: 2rem 5rem;
+}
+
 @media (width < 577px) {
   .formGrid {
     grid-template-columns: 1fr;

@@ -12,7 +12,6 @@ const LargeBlog = (props) => {
       <div style={{ flex: '1' }} >
         <img className={styles.image} src={props.imageURL} />
       </div>
-
       <div className={styles.contentContainer}>
         <div>
           <span className={styles.info} style={categoryStyle} >{props.category}</span>

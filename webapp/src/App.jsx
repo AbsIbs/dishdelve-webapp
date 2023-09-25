@@ -1,6 +1,7 @@
 // Screens
 import LandingPage from './screens/landingPage/landingPage';
 import ContactUs from './screens/Contact Us/contactUs';
+import AboutUs from './screens/About Us/aboutUs';
 // Components
 import Navbar from './components/Global/Navbar/Navbar';
 // Import your global stylesheet
@@ -14,6 +15,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<LandingPage/>} />
         <Route path='/contact-us' element={<ContactUs/>} />
+        <Route path='/about-us' element={<AboutUs/>} />
       </Routes>
     </>
   )
