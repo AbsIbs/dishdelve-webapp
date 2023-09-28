@@ -1,11 +1,11 @@
+import { useEffect } from 'react';
 import styles from './styles.module.scss'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Link } from 'react-router-dom';
 
 const Recipe = (props) => {
-  const urlTitle = props.title.replace(/\s+/g, '-');
   return (
-    <Link to={`/recipe/${urlTitle}`} className={styles.container} >
+    <Link to={`/recipe/${props.id}`} className={styles.container} >
       <img className={styles.image} src={props.imageURL} />
       <div className={styles.contentContainer} >
         <div className={styles.categoryContainer} >

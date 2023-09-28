@@ -97,7 +97,7 @@ const LandingPage = () => {
             {recipes.slice(7, recipes.length).map((data, index) => {
               return (
                 <div key={index} >
-                  <Recipe title={data.title} desc={data.chefsNotes} imageURL={data.coverImage} category={data.mealType} difficulty={data.difficulty} />
+                  <Recipe id={data.id} title={data.title} desc={data.chefsNotes} imageURL={data.coverImage} category={data.mealType} difficulty={data.difficulty} />
                 </div>
               )
             })}
