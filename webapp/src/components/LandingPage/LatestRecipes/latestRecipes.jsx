@@ -58,33 +58,6 @@ const LatestRecipes = (props) => {
 
   return (
     <div className={styles.section} >
-      {/* {mobileLayout ?
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }} >
-          {recipes.map((data, index) => {
-            return (
-              <div key={index} className={styles.mobileLayoutContainer}>
-                <Recipe title={data.title} difficulty={data.difficulty} imageURL={data.coverImage} flex={'1'} />
-              </div>
-            )
-          })}
-        </div> :
-        <>
-          <div className={styles.outerContainer} >
-            <Recipe title={recipes[0].title} difficulty={recipes[0].difficulty} imageURL={recipes[0].coverImage} flex={'1'} />
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', flex: '1' }} >
-              <Recipe title={recipes[1].title} difficulty={recipes[1].difficulty} imageURL={recipes[1].coverImage} flex={'1'} />
-              <Recipe title={recipes[2].title} difficulty={recipes[2].difficulty} imageURL={recipes[2].coverImage} flex={'1'} />
-            </div>
-          </div>
-          <div className={styles.outerContainer} >
-            <Recipe title={recipes[3].title} difficulty={recipes[3].difficulty} imageURL={recipes[3].coverImage} flex={'6'} />
-            <Recipe title={recipes[4].title} difficulty={recipes[4].difficulty} imageURL={recipes[4].coverImage} flex={'4'} />
-          </div>
-          <div className={styles.outerContainer} >
-            <Recipe title={recipes[5].title} difficulty={recipes[5].difficulty} imageURL={recipes[5].coverImage} flex={'1'} />
-            <Recipe title={recipes[6].title} difficulty={recipes[6].difficulty} imageURL={recipes[6].coverImage} flex={'1'} />
-          </div>
-        </>} */}
       <div className={styles.recipesGrid} >
         {recipes.map((data, index) => {
           return (

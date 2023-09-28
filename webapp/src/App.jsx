@@ -2,6 +2,7 @@
 import LandingPage from './screens/landingPage/landingPage';
 import ContactUs from './screens/Contact Us/contactUs';
 import AboutUs from './screens/About Us/aboutUs';
+import RecipeViewer from './screens/Recipe Viewer/recipeViewer';
 // Components
 import Navbar from './components/Global/Navbar/Navbar';
 // Import your global stylesheet
@@ -16,6 +17,7 @@ const App = () => {
         <Route path='/' element={<LandingPage/>} />
         <Route path='/contact-us' element={<ContactUs/>} />
         <Route path='/about-us' element={<AboutUs/>} />
+        <Route path='/recipe/:recipeTitle' element={<RecipeViewer/>} />
       </Routes>
     </>
   )
