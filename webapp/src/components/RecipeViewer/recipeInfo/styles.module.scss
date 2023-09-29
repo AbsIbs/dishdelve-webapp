@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  font-family: 'Poppins';
+}
+
+.container {
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.iconContainer {
+  background-color: #787D91;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  width: 70px;
+  height: 100%;
+}
+
+.title {
+  font-size: 1.25rem;
+}
+
+.subtitle {
+  font-size: 0.8rem;
+}
