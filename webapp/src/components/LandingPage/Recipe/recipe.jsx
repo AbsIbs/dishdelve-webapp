@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import styles from './styles.module.scss'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Link } from 'react-router-dom';
