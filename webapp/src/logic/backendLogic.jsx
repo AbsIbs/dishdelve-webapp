@@ -42,10 +42,10 @@ export const getRecipe = async (id) => {
   }
 };
 
-export const getRecipes = async (num) => {
+export const getRecipes = async (num, order) => {
   try {
     // If there is no last post then retrieve the first 14 initial recipe
-    const q = query(recipesRef, orderBy('timestamp', 'desc'), limit(num));
+    const q = query(recipesRef, orderBy('timestamp', order == 'reverse' ? 'asc' : 'desc'), limit(num));
     const recipesSnapshot = await getDocs(q)
     const rawRecipes = recipesSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     const recipes = await retrieveUserInfo(rawRecipes)
