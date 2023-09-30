@@ -9,6 +9,13 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 
 const Ingredients = (props) => {
 
+  const testArray = [
+    { name: 'REDUCED SODIUM TAMARI', amount: 12, measurement: 'cup' },
+    { name: 'TOASTED SESAME SEED OIL', amount: 1, measurement: 'tbsp' },
+    { name: 'REDUCED SODIUM TAMARI', amount: 12, measurement: 'cup' },
+    { name: 'TOASTED SESAME SEED OIL', amount: 1, measurement: 'tbsp' }
+  ]
+
   // Handle dynamic ingredients
   const [servings, setServings] = useState(1)
   // Decrease servings
@@ -43,9 +50,9 @@ const Ingredients = (props) => {
               <CheckBoxOutlineBlankIcon style={tickBoxStyle} />
             </IconButton>
           }
-          <p>REDUCED SODIUM TAMARI</p>
+          <p>{props.name}</p>
         </div>
-        <p>12 ounces</p>
+        <p>{props.amount * servings} {props.measurement}</p>
       </div>
     )
   };
@@ -64,8 +71,13 @@ const Ingredients = (props) => {
           </IconButton>
         </div>
       </div>
-      <Ingredient />
-      <Ingredient />
+      {testArray.map((data, index) => {
+        return (
+          <div key={index} >
+            <Ingredient name={data.name} amount={data.amount} measurement={data.measurement} />
+          </div>
+        )
+      })}
     </div>
   )
 };

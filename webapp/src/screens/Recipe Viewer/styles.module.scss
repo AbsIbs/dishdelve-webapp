@@ -33,9 +33,8 @@
 }
 
 .moreRecipesContainer {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
 }
 
@@ -87,8 +86,5 @@
   }
   .recipeColumn {
     max-width: 100%;
-  }
-  .moreRecipesContainer {
-    grid-template-columns: 1fr 1fr;
   }
 }
