@@ -97,7 +97,7 @@ const LandingPage = () => {
         </div>
         {/* Latest Recipes */}
         {recipes.length > 0 ? (
-          <LatestRecipes recipes={recipes.slice(0, 7)} />
+          <LatestRecipes recipes={recipes.slice(1, 8)} />
         ) : (
           <p>Loading...</p>
         )}
@@ -105,7 +105,7 @@ const LandingPage = () => {
         <div className={styles.section} >
           <div className={styles.container} style={{ padding: '1rem' }} >
             <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', padding: '6rem 0' }} >
-              {recipes.slice(7, recipes.length).map((data, index) => {
+              {recipes.slice(8, recipes.length).map((data, index) => {
                 return (
                   <div key={index} >
                     <Recipe id={data.id} title={data.title} desc={data.chefsNotes} imageURL={data.coverImage} category={data.mealType} difficulty={data.difficulty} />
