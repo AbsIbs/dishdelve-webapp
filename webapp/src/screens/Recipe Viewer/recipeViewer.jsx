@@ -6,6 +6,7 @@ import { getRecipe, getRecipes } from '../../logic/backendLogic';
 // Components
 import MiniRecipe from '../../components/RecipeViewer/miniRecipe/miniRecipe';
 import RecipeInfo from '../../components/RecipeViewer/recipeInfo/recipeInfo';
+import Ingredients from '../../components/RecipeViewer/ingredients/ingredients';
 
 const RecipeViewer = () => {
   const { recipeId } = useParams();
@@ -73,6 +74,8 @@ const RecipeViewer = () => {
                   <RecipeInfo title={`${recipe.servings} person(s)`} subtitle={'Servings'} />
                   <RecipeInfo title={recipe.difficulty} subtitle={'Difficulty'} />
                 </div>
+                <p className={styles.desc} >{recipe.chefsNotes} Skip takeout and make sesame chicken at home with this simple recipe. It's loaded with flavor, comes together in under 30 minutes and is absolutely delicious as a full meal when paired with rice and a side of veggies.</p>
+                <Ingredients />
               </div>
             </div>
             <div className={styles.moreRecipesContainer}>
