@@ -85,7 +85,7 @@ const RecipeViewer = () => {
               {recipes.map((data, index) => {
                 return (
                   <div key={index}>
-                    <MiniRecipe title={data.title} difficulty={data.difficulty} imageURL={data.coverImage} />
+                    <MiniRecipe id={data.id} title={data.title} difficulty={data.difficulty} imageURL={data.coverImage} />
                   </div>
                 )
               })}
