@@ -1,7 +1,6 @@
 import { db } from '../../firebase/firebase-config';
 import { collection, getDocs, limit, query, orderBy, getDoc, doc } from "firebase/firestore/lite";
 
-
 // Reference
 // Multiple recipes
 const recipesRef = collection(db, 'recipes');
@@ -43,6 +42,7 @@ export const getRecipe = async (id) => {
 };
 
 export const getRecipes = async (num, order) => {
+  randomOrder: Math.random()
   try {
     // If there is no last post then retrieve the first 14 initial recipe
     const q = query(recipesRef, orderBy('timestamp', order == 'reverse' ? 'asc' : 'desc'), limit(num));

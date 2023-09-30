@@ -38,6 +38,15 @@ const Ingredients = (props) => {
       fontSize: '2rem'
     }
 
+    const roundAmount = (number) => {
+      if (Number.isInteger(number)) {
+        return number; // If the number is a whole number, return as is
+      } else {
+        const roundedNumber = Math.round(number * 10) / 10;
+        return roundedNumber.toFixed(1);
+      }
+    }
+
     return (
       <div className={styles.ingredientContainer} >
         <div className={styles.iconNameContainer} >
@@ -50,9 +59,9 @@ const Ingredients = (props) => {
               <CheckBoxOutlineBlankIcon style={tickBoxStyle} />
             </IconButton>
           }
-          <p>{props.name}</p>
+          <p>{props.name.toUpperCase()}</p>
         </div>
-        <p>{props.amount * servings} {props.measurement}</p>
+        <p>{roundAmount(props.amount * servings)} {props.measurement}</p>
       </div>
     )
   };
@@ -71,7 +80,7 @@ const Ingredients = (props) => {
           </IconButton>
         </div> */}
       </div>
- {/*      {testArray.map((data, index) => {
+      {/*      {testArray.map((data, index) => {
         return (
           <div key={index} >
             <Ingredient name={data.name} amount={data.amount} measurement={data.measurement} />

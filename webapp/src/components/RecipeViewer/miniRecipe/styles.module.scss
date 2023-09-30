@@ -3,29 +3,26 @@
   margin: 0;
 }
 
-.container {
+.recipeContainer {
   display: flex;
+  padding: 1rem 1rem;
   flex-direction: column;
+  justify-content: flex-end;
   width: 250px;
-  gap: 0.5rem;
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.difficulty {
-  background-color: black;
-  color: white;
-  font-size: 0.8rem;
-  padding: 0.25rem 0.5rem;
-  max-width: fit-content;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 300px
 }
 
 .title {
-  font-weight: 500;
-  font-size: 1rem;
+  background-color: white;
+  color: black;
+  padding: 0.5rem 0.5rem;
+}
+
+.difficulty {
+  padding:  0 0.5rem;
+  background-color: black;
+  color: white;
 }
