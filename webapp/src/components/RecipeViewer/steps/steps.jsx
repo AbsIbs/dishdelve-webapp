@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import styles from './styles.module.scss'
 // Icons
-import IconButton from '@mui/material/IconButton';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 
@@ -22,20 +21,21 @@ const Steps = (props) => {
 
     const tickBoxStyle = {
       color: `var(--primary-color)`,
-      fontSize: '2rem'
+      fontSize: '2rem',
+      padding: '0'
     }
 
     return (
       <div className={styles.stepContainer} >
         <p>{props.index + 1}.</p>
         {selected ?
-          <IconButton onClick={() => toggleSelected()}>
+          <div onClick={() => toggleSelected()} >
             <CheckBoxIcon style={tickBoxStyle} />
-          </IconButton>
+          </div>
           :
-          <IconButton onClick={() => toggleSelected()}>
+          <div onClick={() => toggleSelected()}  >
             <CheckBoxOutlineBlankIcon style={tickBoxStyle} />
-          </IconButton>
+          </div>
         }
         <p>{props.step}</p>
       </div>
@@ -47,10 +47,10 @@ const Steps = (props) => {
       <div className={styles.titleContainer}>
         <p className={styles.title}>{props.title}STEPS</p>
       </div>
-      {testArray.map((step, index) => {
+      {props.steps.map((step, index) => {
         return (
           <div key={index} >
-            <Step index={index} step={step} />
+            <Step index={index} step={step.instructions} />
           </div>
         )
       })}

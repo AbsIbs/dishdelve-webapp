@@ -14,12 +14,12 @@ const Nutrients = (props) => {
   return (
     <div className={styles.container} >
       <div className={styles.titleContainer}>
-        <p className={styles.title}>{props.title}NUTRIENTS</p>
+        <p className={styles.title}>NUTRIENTS</p>
       </div>
-      <Nutrient name={'CALORIES'} amount={12} measurement={'kcal'}/>
-      <Nutrient name={'CARBS'} amount={12} measurement={'g'}/>
-      <Nutrient name={'PROTEINS'} amount={12} measurement={'g'}/>
-      <Nutrient name={'FATS'} amount={12} measurement={'g'}/>
+      <Nutrient name={'CALORIES'} amount={props.macros.calories} measurement={'kcal'}/>
+      <Nutrient name={'CARBS'} amount={props.macros.carbs} measurement={'g'}/>
+      <Nutrient name={'PROTEINS'} amount={props.macros.protein} measurement={'g'}/>
+      <Nutrient name={'FATS'} amount={props.macros.fat} measurement={'g'}/>
     </div>
   )
 };

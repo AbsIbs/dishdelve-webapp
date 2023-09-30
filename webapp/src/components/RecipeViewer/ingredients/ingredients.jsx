@@ -71,20 +71,20 @@ const Ingredients = (props) => {
           </IconButton>
         </div> */}
       </div>
-      {testArray.map((data, index) => {
-        return (
-          <div key={index} >
-            <Ingredient name={data.name} amount={data.amount} measurement={data.measurement} />
-          </div>
-        )
-      })}
-{/*       {props.recipes.map((data, index) => {
+ {/*      {testArray.map((data, index) => {
         return (
           <div key={index} >
             <Ingredient name={data.name} amount={data.amount} measurement={data.measurement} />
           </div>
         )
       })} */}
+      {props.ingredients.map((data, index) => {
+        return (
+          <div key={index} >
+            <Ingredient name={data.name} amount={data.amount} measurement={data.measurement} />
+          </div>
+        )
+      })}
     </div>
   )
 };
