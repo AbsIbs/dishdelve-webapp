@@ -16,11 +16,12 @@ import { getRandomRecipes } from '../../logic/backendLogic'
 
 const LandingPage = () => {
   const [logoURL, setLogoURL] = useState(null)
+  // Store the array of recipes
   const [recipes, setRecipes] = useState([])
   const [loading, setLoading] = useState(true)
 
   const getRecipesHandler = () => {
-    getRandomRecipes(15)
+    getRandomRecipes(16)
       .then((data) => {
         setRecipes(data)
         return data
@@ -57,7 +58,7 @@ const LandingPage = () => {
       :
       <>
         {/* Latest recipe section */}
-        <RecentRecipe />
+        <RecentRecipe recipe={recipes[0]} />
         {/* Newsletter section */}
         <Newsletter />
         {/* Latest Blogs section and Blogs */}

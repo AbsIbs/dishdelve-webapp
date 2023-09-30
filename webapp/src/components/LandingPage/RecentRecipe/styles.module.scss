@@ -2,11 +2,14 @@
   font-family: 'Poppins';
 }
 
+a {
+  cursor: pointer; 
+}
+
 .section {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url("../../../assets/couscousImage.png");
   background-size: cover;
   background-position: center;
   height: 700px;
@@ -27,16 +30,6 @@
   gap: 1.5rem;
 }
 
-.topButton {
-  background-color: var(--primary-color);
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  color: white;
-  font-size: 14px;
-  display: inline-flex;;
-  align-items: center;
-}
-
 .title {
   font-size: 2.5rem;
   font-weight: 500;
@@ -53,14 +46,17 @@
   height: 45px;
   width: 45px;
   border-radius: 25px;
-  background-image: url("../../../assets/logo.png");
   background-size: cover;
 }
 
 .bottomButton {
-  @extend .topButton;
+  color: white;
+  font-size: 14px;
+  display: inline-flex;;
+  align-items: center;
+  background-color: var(--primary-color);
   padding: 1rem 2rem;
-  border-radius: 50px;
+  border-radius: 8px;
   gap: 5px;
 }
 
