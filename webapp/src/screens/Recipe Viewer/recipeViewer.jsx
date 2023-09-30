@@ -7,12 +7,14 @@ import { getRecipe, getRecipes } from '../../logic/backendLogic';
 import MiniRecipe from '../../components/RecipeViewer/miniRecipe/miniRecipe';
 import RecipeInfo from '../../components/RecipeViewer/recipeInfo/recipeInfo';
 import Ingredients from '../../components/RecipeViewer/ingredients/ingredients';
+import Nutrients from '../../components/RecipeViewer/nutrients/nutrients';
 
 const RecipeViewer = () => {
   const { recipeId } = useParams();
   const [loading, setLoading] = useState(true)
   const [recipe, setRecipe] = useState()
   const [recipes, setRecipes] = useState([])
+  const [servings, setServings] = useState(1)
 
   const imageURL = 'https://firebasestorage.googleapis.com/v0/b/seazon-app-mvp.appspot.com/o/recipes%2F741d3375-8368-4eb0-aafc-d190d6522be9%2FcoverImage.png?alt=media&token=200a16bd-36b5-4cb7-9ed3-86d510f9557e&_gl=1*146b90e*_ga*NDE5OTc5Mzg3LjE2NTA2NTU0NzY.*_ga_CW55HF8NVT*MTY5NjAxNTA5OS4xMDkuMS4xNjk2MDE1MzgzLjU3LjAuMA..'
   const logoURL = 'https://firebasestorage.googleapis.com/v0/b/seazon-app-mvp.appspot.com/o/seazon%2Fimg%2Flogo.png?alt=media&token=4c2f96d0-5df4-4661-ab4c-a02bab583a07&_gl=1*1an10az*_ga*NDE5OTc5Mzg3LjE2NTA2NTU0NzY.*_ga_CW55HF8NVT*MTY5NjAxNTA5OS4xMDkuMS4xNjk2MDE1MjY2LjU1LjAuMA..'
@@ -76,6 +78,7 @@ const RecipeViewer = () => {
                 </div>
                 <p className={styles.desc} >{recipe.chefsNotes} Skip takeout and make sesame chicken at home with this simple recipe. It's loaded with flavor, comes together in under 30 minutes and is absolutely delicious as a full meal when paired with rice and a side of veggies.</p>
                 <Ingredients />
+                <Nutrients />
               </div>
             </div>
             <div className={styles.moreRecipesContainer}>

@@ -61,7 +61,7 @@ const Ingredients = (props) => {
     <div className={styles.container} >
       <div className={styles.titleContainer}>
         <p className={styles.title}>{props.title}INGREDIENTS</p>
-        <div className={styles.servingsContainer}>
+        {/* <div className={styles.servingsContainer}>
           <IconButton style={{ padding: 0 }} onClick={() => { increaseServings() }} >
             <AddIcon className={styles.icon} />
           </IconButton>
@@ -69,7 +69,7 @@ const Ingredients = (props) => {
           <IconButton style={{ padding: 0 }} onClick={() => { decreaseServings() }} >
             <RemoveIcon className={styles.icon} />
           </IconButton>
-        </div>
+        </div> */}
       </div>
       {testArray.map((data, index) => {
         return (
@@ -78,6 +78,13 @@ const Ingredients = (props) => {
           </div>
         )
       })}
+{/*       {props.recipes.map((data, index) => {
+        return (
+          <div key={index} >
+            <Ingredient name={data.name} amount={data.amount} measurement={data.measurement} />
+          </div>
+        )
+      })} */}
     </div>
   )
 };
