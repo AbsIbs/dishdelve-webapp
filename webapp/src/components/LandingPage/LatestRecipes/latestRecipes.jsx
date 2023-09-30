@@ -1,5 +1,4 @@
 import styles from './styles.module.scss'
-import { Link } from 'react-router-dom';
 
 const LatestRecipes = (props) => {
 
@@ -31,9 +30,9 @@ const LatestRecipes = (props) => {
       <div className={styles.recipesGrid} >
         {recipes.map((data, index) => {
           return (
-            <Link to={`/recipe/${data.id}`} key={index} className={styles.gridItem}>
+            <a href={`/recipe/${data.id}`} key={index} className={styles.gridItem}>
               <Recipe title={data.title} id={data.id} difficulty={data.difficulty} imageURL={data.coverImage} flex={'1'} />
-            </Link>
+            </a>
           )
         })}
       </div>
