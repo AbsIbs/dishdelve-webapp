@@ -1,11 +1,11 @@
 * {
   font-family: 'Poppins';
+  line-height: 175%;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   width: 100%;
 }
 
@@ -17,16 +17,13 @@
 .titleContainer {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 2rem 0;
   border-bottom: 3px var(--primary-color) solid;
 }
 
-.ingredientContainer {
+.stepContainer {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  padding: 2rem 0;
-  border-bottom: 1.5px #CCCCCC solid;
+  padding-top: 2rem;
 }
