@@ -1,5 +1,5 @@
 import { db } from '../../firebase/firebase-config';
-import { collection, getDocs, limit, query, orderBy, getDoc, doc } from "firebase/firestore/lite";
+import { collection, getDocs, limit, query, where, orderBy, getDoc, doc } from "firebase/firestore/lite";
 
 // Reference
 // Multiple recipes
@@ -41,16 +41,50 @@ export const getRecipe = async (id) => {
   }
 };
 
-export const getRecipes = async (num, order) => {
-  randomOrder: Math.random()
+export const getRecipes = async (num) => {
   try {
     // If there is no last post then retrieve the first 14 initial recipe
-    const q = query(recipesRef, orderBy('timestamp', order == 'reverse' ? 'asc' : 'desc'), limit(num));
+    const q = query(recipesRef, orderBy('timestamp'), limit(num));
     const recipesSnapshot = await getDocs(q)
     const rawRecipes = recipesSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     const recipes = await retrieveUserInfo(rawRecipes)
     return recipes;
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const getRandomRecipes = async (num) => {
+  try {
+    const randomValue = Math.random()
+    // Query to retrieve recipes if their randomID field is greater than or equal to our randomValue
+    const initialQ = query(
+      collection(db, 'recipes'),
+      where('randomID', '<=', randomValue.toFixed(2)),
+      orderBy('randomID'),
+      limit(num)
+    );
+    const initialQsnapshot = await getDocs(initialQ);
+    const rawInitialQRecipes = initialQsnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+
+    // Now, create backwards query if the length of retrieved recipes is less than our desired amount
+    if (rawInitialQRecipes.length < num) {
+      const additionalQ = query(
+        collection(db, 'recipes'),
+        where('randomID', '>', randomValue),
+        orderBy('randomID'),
+        limit(num - rawInitialQRecipes.length)
+      );
+      const additionalQsnapshot = await getDocs(additionalQ);
+      const additionalRawRecipes = additionalQsnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      const rawRecipes = rawInitialQRecipes.concat(additionalRawRecipes)
+      const recipes = await retrieveUserInfo(rawRecipes)
+      return recipes
+    } else {
+      const recipes = await retrieveUserInfo(rawInitialQRecipes)
+      return recipes
+    }
+  } catch (error) {
+    console.log(error)
   }
 };

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import styles from './styles.module.scss'
 import { useParams } from 'react-router-dom';
 // Logic
-import { getRecipe, getRecipes } from '../../logic/backendLogic';
+import { getRecipe, getRecipes, getRandomRecipes } from '../../logic/backendLogic';
 // Components
 import MiniRecipe from '../../components/RecipeViewer/miniRecipe/miniRecipe';
 import RecipeInfo from '../../components/RecipeViewer/recipeInfo/recipeInfo';
@@ -36,7 +36,7 @@ const RecipeViewer = () => {
   }, [])
 
   const getRecipesHandler = () => {
-    getRecipes(5, 'reverse')
+    getRandomRecipes(8)
       .then((data) => {
         setRecipes(data)
         return data
