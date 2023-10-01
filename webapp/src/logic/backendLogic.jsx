@@ -1,5 +1,5 @@
 import { db } from '../../firebase/firebase-config';
-import { collection, getDocs, limit, query, where, orderBy, getDoc, doc } from "firebase/firestore/lite";
+import { collection, getDocs, limit, query, where, orderBy, getDoc, doc } from "firebase/firestore";
 
 // Reference
 // Multiple recipes
