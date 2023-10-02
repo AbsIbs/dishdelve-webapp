@@ -47,16 +47,16 @@ const RecipeViewer = () => {
   }
 
   // Get recipes on page load
-     useEffect(() => {
-       getRecipesHandler()
-     }, [])
+  useEffect(() => {
+    getRecipesHandler()
+  }, [])
 
   return (
     <div className={styles.section} >
       <div className={styles.container} >
         {/* Loading screen */}
         {loading ?
-          <p>Loading...</p>
+          null
           :
           <>
             <div style={{ flex: 7 }} >

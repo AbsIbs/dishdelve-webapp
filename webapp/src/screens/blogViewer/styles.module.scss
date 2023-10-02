@@ -1,0 +1,30 @@
+* {
+  font-family: 'Poppins';
+  margin: 0;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: var(--container-width);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.title {
+  font-size: clamp(1.5rem, calc(1rem + 2.5vw), 3rem);
+}
+
+.coverImage {
+  border-radius: 8px;
+  object-fit: cover;
+  object-position: center center;
+  height: 350px;
+  width: 100%;
+}

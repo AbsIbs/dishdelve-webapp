@@ -1,20 +1,22 @@
-import { db } from '../../firebase/firebase-config';
+import { db, storage } from '../../firebase/firebase-config';
 import { collection, getDocs, limit, query, where, orderBy, getDoc, doc } from "firebase/firestore";
+import { ref, getDownloadURL } from 'firebase/storage'
 
 // Reference
 // Multiple recipes
 const recipesRef = collection(db, 'recipes');
+const blogsRef = collection(db, 'blogs');
 
 // A function to retrieve the user info per recipe and store it 
-const retrieveUserInfo = async (recipesArray) => {
-  const newArray = [...recipesArray]
+const retrieveUserInfo = async (array) => {
+  const newArray = [...array]
   try {
-    for (const recipe of newArray) {
-      const userRef = doc(db, 'users', recipe.userID);
+    for (const item of newArray) {
+      const userRef = doc(db, 'users', item.userID);
       const docSnap = await getDoc(userRef);
       const tempData = docSnap.data();
-      recipe.author = tempData.displayName;
-      recipe.profileImageURL = tempData.profileImageURL;
+      item.author = tempData.displayName;
+      item.profileImageURL = tempData.profileImageURL;
     }
     return newArray;
   } catch (error) {
@@ -22,6 +24,49 @@ const retrieveUserInfo = async (recipesArray) => {
   }
 };
 
+// A function to retrieve multiple blogs
+export const getBlogs = async (num) => {
+  try {
+    const q = query(blogsRef, orderBy('timestamp'), limit(num));
+    const blogsSnapshot = await getDocs(q)
+    const rawBlogs = blogsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    const blogs = await retrieveUserInfo(rawBlogs)
+    return blogs;
+  } catch (error) {
+    console.log(error)
+  }
+};
+
+export const getBlog = async (id) => {
+  try {
+    // Reference
+    const blogsRef = doc(db, 'blogs', id)
+    const blogSnapshot = await getDoc(blogsRef)
+    const blog = blogSnapshot.data()
+    // Retrieve user information
+    const userRef = doc(db, 'users', blog.userID);
+    const docSnap = await getDoc(userRef);
+    const userData = docSnap.data();
+    blog.author = userData.displayName;
+    blog.profileImageURL = userData.profileImageURL;
+    return blog
+  } catch (error) {
+    console.log(error)
+  }
+};
+
+export const fetchMdFile = async (id) => {
+  try {
+    const mdFileRef = ref(storage, `blogs/${id}/post.md`);
+    const downloadUrl = await getDownloadURL(mdFileRef);
+    const response = await fetch(downloadUrl);
+    const mdContent = await response.text();
+    return mdContent;
+  } catch (error) {
+    console.error('Error fetching MD file:', error);
+    throw error; // Re-throw the error so the caller can handle it if needed
+  }
+};
 // Get individual recipe
 export const getRecipe = async (id) => {
   try {

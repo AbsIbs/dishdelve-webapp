@@ -12,13 +12,24 @@ import LatestRecipes from '../../components/LandingPage/LatestRecipes/latestReci
 import Recipe from '../../components/LandingPage/Recipe/recipe'
 import Footer from '../../components/Global/Footer/footer'
 // Functions
-import { getRandomRecipes } from '../../logic/backendLogic'
+import { getRandomRecipes, getBlogs } from '../../logic/backendLogic'
 
 const LandingPage = () => {
   const [logoURL, setLogoURL] = useState(null)
   // Store the array of recipes
   const [recipes, setRecipes] = useState([])
+  const [blogs, setBlogs] = useState([])
   const [loading, setLoading] = useState(true)
+
+  const getBlogsHandler = () => {
+    getBlogs(4)
+      .then((data) => {
+        setBlogs(data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  };
 
   const getRecipesHandler = () => {
     getRandomRecipes(16)
@@ -38,10 +49,9 @@ const LandingPage = () => {
     getRecipesHandler()
   }, [])
 
-  // Dummy data
-  const desc = 'Unlock the magic of spices and elevate your culinary prowess! Our guide will demystify spices, empowering you to create tantalizing dishes. Learn the art of seasoning...'
-  const category = 'Mindfulness'
-  const imageURL = 'https://firebasestorage.googleapis.com/v0/b/seazon-app-mvp.appspot.com/o/recipes%2F15ff7dfa-049c-4494-a869-06831a6dd081%2FcoverImage.png?alt=media&token=2a394080-e23c-4522-812e-3e295cdadf31'
+  useEffect(() => {
+    getBlogsHandler()
+  }, [])
 
   useEffect(() => {
     getDownloadURL(ref(storage, 'seazon/img/logo.png'))
@@ -54,7 +64,6 @@ const LandingPage = () => {
     <>
       {/* Latest recipe section */}
       {loading ? null : <RecentRecipe recipe={recipes[0]} />}
-
       {/* Newsletter section */}
       <Newsletter />
       {/* Latest Blogs section and Blogs */}
@@ -62,9 +71,14 @@ const LandingPage = () => {
         <div className={styles.latestBlogsContainer}>
           {/* Recent blogs */}
           <div className={styles.leftColumn}>
-            <LargeBlog category={category} desc={desc} imageURL={imageURL} />
-            <LargeBlog category={category} desc={desc} imageURL={imageURL} />
-            <LargeBlog category={category} desc={desc} imageURL={imageURL} />
+            {blogs.length > 0 ?
+              (blogs.map((blog, index) => {
+                return (
+                  <div key={index} >
+                    <LargeBlog title={blog.title} intro={blog.intro} coverImage={blog.coverImage} author={blog.author} timestamp={blog.timestamp} id={blog.id} />
+                  </div>
+                )
+              })) : null}
           </div>
           {/* About us | Blog Categories and Latest Blogs */}
           <div className={styles.rightColumn}>
@@ -82,8 +96,14 @@ const LandingPage = () => {
               <p className={styles.blogCategoryMenuItem} >Restaurant Reviews </p>
             </Menu>
             <Menu title={'LATEST BLOGS'} >
-              <MiniBlog title={'Rise and Dine: 5 Easy-Peasy Nutritious recipes to kickstart the morning!'} date={'7th September 2023'} imageURL={imageURL} />
-              <MiniBlog title={'Rise and Dine: 5 Easy-Peasy Nutritious recipes to kickstart the morning!'} date={'7th September 2023'} imageURL={imageURL} />
+              {blogs.length > 0 ?
+                (blogs.slice(blogs.length - 2, blogs.length + 1).map((blog, index) => {
+                  return (
+                    <div key={index} >
+                      <MiniBlog title={blog.title} timestamp={blog.timestamp} imageURL={blog.coverImage} id={blog.id} />
+                    </div>
+                  )
+                })) : null}
             </Menu>
           </div>
         </div>
