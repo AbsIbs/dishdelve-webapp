@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import styles from './styles.module.scss'
 import { useParams } from 'react-router-dom';
-import Markdown from 'https://esm.sh/react-markdown@9?bundle'
+import ReactMarkdown from 'react-markdown'
+import remarkBreaks from 'https://esm.sh/remark-breaks@4'
+import remarkGfm from 'https://esm.sh/remark-gfm@4?bundle'
 // Logic
 import { getBlog } from '../../logic/backendLogic'
 
@@ -22,17 +24,15 @@ const BlogViewer = () => {
       .then((data) => {
         return fetch(data.blog)
       })
-      .then((md) => {
-        setMdFile(md.text())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text();
       })
-      /*       // Parse the md file and store the content
-            .then((response) => {
-              return response.text(); // Returns a Promise
-            })
-            .then((mdContent) => {
-              console.log(mdContent);
-              setMdFile(mdContent); // Now you have the resolved text, set it to state
-            }) */
+      .then((md) => {
+        setMdFile(md)
+      })
       .catch((error) => {
         console.log(error);
       });
@@ -44,6 +44,10 @@ const BlogViewer = () => {
     getBlogHandler()
   }, [])
 
+  const Image = (props) => {
+    return <img {...props} style={{ maxWidth: '100%' }} />
+  }
+
   return (
     <>
       {blog ? (
@@ -52,9 +56,9 @@ const BlogViewer = () => {
             <img className={styles.coverImage} src={blog.coverImage} />
             <p className={styles.title} >{blog.title}</p>
             <p>{blog.author}</p>
-            <Markdown >
+            <ReactMarkdown components={{ img: Image }} remarkPlugins={[remarkGfm, remarkBreaks]}>
               {mdFile}
-            </Markdown>
+            </ReactMarkdown>
           </div>
         </div>
       ) : null}
