@@ -79,7 +79,35 @@
   cursor: pointer;
 }
 
-@media (width < 577px) {
+@media (max-width: 577px) {
+  .newsletterContainer {
+    flex-direction: column;
+  }
+  .form {
+    flex-direction: column;
+  }
+  .subscribe {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 769px) {
+  .title {
+    text-align: center;
+  }
+  .desc {
+    text-align: center;
+  }
+  .container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .leftBox {
+    align-items: center;
+  }
+}
+
+/* @media (width < 577px) {
   .newsletterContainer {
     flex-direction: column;
   }
@@ -105,4 +133,4 @@
   .leftBox {
     align-items: center;
   }
-}
+} */

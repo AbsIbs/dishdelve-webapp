@@ -88,7 +88,7 @@ body {
   justify-self: center;
 }
 
-@media (width < 577px) {
+@media (max-width: 577px) {
   .icon {
     display: inline-block;
   }

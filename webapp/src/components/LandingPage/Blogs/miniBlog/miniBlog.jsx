@@ -23,7 +23,7 @@ const MiniBlog = (props) => {
 
   return (
     <a href={`/blog/${props.id}`} className={styles.container} >
-      <div style={{ flex: '1' }}>
+      <div style={styles.imageContainer}>
         <img className={styles.image} src={props.imageURL} />
       </div>
       <div className={styles.infoContainer} >

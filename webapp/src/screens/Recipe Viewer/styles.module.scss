@@ -73,7 +73,7 @@
 }
 
 // Responsiveness
-@media (width < 997px) {
+@media (max-width: 997px) {
   .container {
     flex-direction: column;
   }

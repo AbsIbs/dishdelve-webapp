@@ -1,16 +1,25 @@
 import { ref, getDownloadURL } from 'firebase/storage'
 import { storage } from '../../../firebase/firebase-config'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy } from 'react'
 import styles from './styles.module.scss'
 // Components
-import RecentRecipe from '../../components/LandingPage/RecentRecipe/recentRecipe'
-import Newsletter from '../../components/Global/Newsletter/newsletter'
-import LargeBlog from '../../components/LandingPage/Blogs/largeBlog/largeBlog';
-import Menu from '../../components/LandingPage/Menu/menu';
-import MiniBlog from '../../components/LandingPage/Blogs/miniBlog/miniBlog'
-import LatestRecipes from '../../components/LandingPage/LatestRecipes/latestRecipes'
-import Recipe from '../../components/LandingPage/Recipe/recipe'
-import Footer from '../../components/Global/Footer/footer'
+const RecentRecipe = lazy(() => import('../../components/LandingPage/RecentRecipe/recentRecipe'))
+const Newsletter = lazy(() => import('../../components/Global/Newsletter/newsletter'))
+const LargeBlog = lazy(() => import('../../components/LandingPage/Blogs/largeBlog/largeBlog'))
+const Menu = lazy(() => import('../../components/LandingPage/Menu/menu'))
+const MiniBlog = lazy(() => import('../../components/LandingPage/RecentRecipe/recentRecipe'))
+const LatestRecipes = lazy(() => import('../../components/LandingPage/RecentRecipe/recentRecipe'))
+const Recipe = lazy(() => import('../../components/LandingPage/RecentRecipe/recentRecipe'))
+const Footer = lazy(() => import('../../components/LandingPage/RecentRecipe/recentRecipe'))
+// import RecentRecipe from '../../components/LandingPage/RecentRecipe/recentRecipe'
+// import Newsletter from '../../components/Global/Newsletter/newsletter'
+// import LargeBlog from '../../components/LandingPage/Blogs/largeBlog/largeBlog';
+// import Menu from '../../components/LandingPage/Menu/menu';
+// import MiniBlog from '../../components/LandingPage/Blogs/miniBlog/miniBlog'
+// import LatestRecipes from '../../components/LandingPage/LatestRecipes/latestRecipes'
+// import Recipe from '../../components/LandingPage/Recipe/recipe'
+// import Footer from '../../components/Global/Footer/footer'
+
 // Functions
 import { getRandomRecipes, getBlogs } from '../../logic/backendLogic'
 
@@ -95,7 +104,7 @@ const LandingPage = () => {
               <p className={styles.blogCategoryMenuItem} >Kitchen Gadgets </p>
               <p className={styles.blogCategoryMenuItem} >Restaurant Reviews </p>
             </Menu>
-            <Menu title={'LATEST BLOGS'} >
+            {/* <Menu title={'LATEST BLOGS'} >
               {blogs.length > 0 ?
                 (blogs.slice(blogs.length - 2, blogs.length + 1).map((blog, index) => {
                   return (
@@ -104,7 +113,7 @@ const LandingPage = () => {
                     </div>
                   )
                 })) : null}
-            </Menu>
+            </Menu> */}
           </div>
         </div>
       </div>
@@ -117,7 +126,7 @@ const LandingPage = () => {
       {/* Recipes */}
       <div className={styles.section} >
         <div className={styles.container} style={{ padding: '1rem' }} >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem', padding: '6rem 0' }} >
+          <div className={styles.recipesSection} >
             {recipes.slice(8, recipes.length).map((data, index) => {
               return (
                 <div key={index} >

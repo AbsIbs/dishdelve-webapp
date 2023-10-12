@@ -74,7 +74,7 @@ a {
   cursor: pointer;
 }
 
-@media (width < 769px) {
+@media (max-width: 769px) {
   .image {
     height: auto;
     border-radius: 8px

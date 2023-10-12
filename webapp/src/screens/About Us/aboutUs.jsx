@@ -56,7 +56,7 @@ const AboutUs = () => {
             <img className={styles.image} src={logoURL}></img>
           </div>
           <div style={{ flex: '1' }}>
-            <p className={styles.desc}>Welcome to our recipe blog, where <span className={styles.textHighlight} >culinary creativity</span> and <span className={styles.textHighlight} >flavor-packed</span> delights come together to inspire your inner chef! At Seazon, we are passionate about sharing our love for cooking and providing a platform for food enthusiasts to embark on a delicious journey.</p>
+            <p className={styles.desc}>Welcome to our recipe blog, where <span className={styles.textHighlight} >culinary creativity</span> and <span className={styles.textHighlight} >flavor-packed</span> delights come together to inspire your inner chef! At Dishdelve, we are passionate about sharing our love for cooking and providing a platform for food enthusiasts to embark on a delicious journey.</p>
           </div>
         </div>
       </div>

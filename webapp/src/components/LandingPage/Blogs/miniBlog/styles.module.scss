@@ -5,43 +5,24 @@
 .container {
   display: flex;
   flex-direction: column;
+  max-height: 250px;
   gap: 0.5rem;
-}
-
-@media (width < 769px) {
-  .container {
-    flex-direction: row;
-  }
 }
 
 .image {
   border-radius: 4px;
-  max-height: 100%;
+  flex: 1;
   height: auto;
-  max-width: 100%;
   width: 100%;
-}
-
-@media (width < 769px) {
-  .container {
-    height: 150px;
-    gap: 1rem;
-  }
+  object-fit: cover;
 }
 
 .infoContainer {
   display: flex;
-  flex: 1;
+  flex: 2;
   flex-direction: column;
   justify-content: space-between;
   gap: 0.5rem;
-}
-
-@media (width < 769px) {
-   .infoContainer {
-    flex: 3;
-    justify-content: center;
-  }
 }
 
 .title {
@@ -59,4 +40,22 @@
   font-size: 0.8rem;
   font-weight: 300;
   margin: 0;
+}
+
+@media (max-width: 769px) {
+ .container {
+  flex-direction: row;
+  height: 150px;
+  gap: 1rem;
+  }
+  .infoContainer {
+    flex: 3;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    flex-direction: column;
+  }
 }

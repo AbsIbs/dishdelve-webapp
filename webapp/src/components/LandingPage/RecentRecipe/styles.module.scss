@@ -60,13 +60,13 @@ a {
   gap: 5px;
 }
 
-@media (width < 998px) {
+@media (max-width: 997px) {
   .card {
     width: 100%;
   }
 }
 
-@media (width < 577px) {
+@media (max-width: 576px) {
   .title {
     font-size: 1.5rem;
   }

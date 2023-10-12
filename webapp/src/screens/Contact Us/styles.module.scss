@@ -59,7 +59,7 @@
   padding: 2rem 5rem;
 }
 
-@media (width < 577px) {
+@media (max-width: 577px) {
   .formGrid {
     grid-template-columns: 1fr;
   }
