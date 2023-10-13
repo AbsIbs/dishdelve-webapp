@@ -11,6 +11,9 @@ a {
   display: flex;
   height: 350px;
   width: auto;
+  border: 1px #00000050 solid;
+  border-radius: 8px;
+  z-index: -1;
 }
 
 .image {
@@ -41,13 +44,10 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-width: 1px 1px 1px 0;
-  border-color: #00000050;
+  border: 0;
   border-style: solid;
   flex: 7;
-  padding: 1rem 2.5rem 1rem 2.5rem;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
+  padding: 1rem 2.5rem;
   gap: 1rem
 }
 
@@ -85,7 +85,7 @@ a {
     gap: 1rem;
   };
   .contentContainer {
-    padding: 1rem 0;
+    padding: 0.5rem;
     border-width: 0;
   };
   .title {

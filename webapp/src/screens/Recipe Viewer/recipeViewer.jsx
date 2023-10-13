@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy } from 'react';
 import styles from './styles.module.scss'
 import { useParams } from 'react-router-dom';
 // Logic
 import { getRecipe, getRandomRecipes } from '../../logic/backendLogic';
 // Components
-import MiniRecipe from '../../components/RecipeViewer/miniRecipe/miniRecipe';
-import RecipeInfo from '../../components/RecipeViewer/recipeInfo/recipeInfo';
-import Ingredients from '../../components/RecipeViewer/ingredients/ingredients';
-import Nutrients from '../../components/RecipeViewer/nutrients/nutrients';
-import Steps from '../../components/RecipeViewer/steps/steps';
+const MiniRecipe = lazy(() => import('../../components/RecipeViewer/miniRecipe/miniRecipe'))
+const RecipeInfo = lazy(() => import('../../components/RecipeViewer/recipeInfo/recipeInfo'))
+const Ingredients = lazy(() => import('../../components/RecipeViewer/ingredients/ingredients'))
+const Nutrients = lazy(() => import('../../components/RecipeViewer/nutrients/nutrients'))
+const Steps = lazy(() => import('../../components/RecipeViewer/steps/steps'))
 
 const RecipeViewer = () => {
   const { recipeId } = useParams();

@@ -3,7 +3,7 @@
   margin: 0;
 }
 
-.recipeContainer {
+/* .recipeContainer {
   display: flex;
   padding: 1rem 1rem;
   border-radius: 4px;
@@ -14,6 +14,31 @@
   background-size: cover;
   background-position: center;
   height: 275px;
+} */
+
+.recipeContainer {
+  position: relative;
+  width: 275px;
+  height: 275px;
+}
+
+.backgroundImage {
+  position: absolute;
+  border-radius: 4px;
+  width: 100%; /* Make sure the image covers the entire container */
+  height: 100%; /* Make sure the image covers the entire container */
+  object-fit: cover; /* Ensure the image maintains its aspect ratio */
+  z-index: -1; /* Place the image behind other content */
+}
+
+.contentContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-end;
+  padding: 1rem 1rem;
+  z-index: 1; /* Place the text above the image */
 }
 
 .title {
