@@ -1,4 +1,5 @@
 import styles from './styles.module.scss'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 
 const LatestRecipes = (props) => {
 
@@ -6,20 +7,16 @@ const LatestRecipes = (props) => {
   const recipes = props.recipes
 
   const Recipe = (props) => {
-    const recipeStyle = {
-      backgroundImage: `url(${props.imageURL})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      flex: props.flex,
-      backgroundPosition: 'center'
-    }
     return (
-      <div className={styles.recipeContainer} style={recipeStyle} >
-        <div>
-          <span className={styles.difficulty} >{props.difficulty}</span>
-        </div>
-        <div>
-          <span className={styles.title} >{props.title}</span>
+      <div className={styles.recipeContainer} >
+        <LazyLoadImage src={props.imageURL} className={styles.backgroundImage} effect='blur' />
+        <div className={styles.recipeContentContainer}>
+          <div>
+            <span className={styles.difficulty} >{props.difficulty}</span>
+          </div>
+          <div>
+            <span className={styles.title} >{props.title}</span>
+          </div>
         </div>
       </div>
     )

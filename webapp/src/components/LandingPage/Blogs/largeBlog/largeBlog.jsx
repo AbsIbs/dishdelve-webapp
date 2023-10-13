@@ -1,4 +1,5 @@
 import styles from './styles.module.scss'
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const LargeBlog = (props) => {
    const categoryStyle = {
@@ -29,7 +30,7 @@ const LargeBlog = (props) => {
   return (
     <a href={`/blog/${props.id}`} className={styles.container}>
       <div style={{ flex: '1' }} >
-        <img className={styles.image} src={props.coverImage} />
+        <LazyLoadImage className={styles.image} src={props.coverImage} />
       </div>
       <div className={styles.contentContainer}>
         <div>

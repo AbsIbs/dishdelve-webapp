@@ -7,10 +7,10 @@ const RecentRecipe = lazy(() => import('../../components/LandingPage/RecentRecip
 const Newsletter = lazy(() => import('../../components/Global/Newsletter/newsletter'))
 const LargeBlog = lazy(() => import('../../components/LandingPage/Blogs/largeBlog/largeBlog'))
 const Menu = lazy(() => import('../../components/LandingPage/Menu/menu'))
-const MiniBlog = lazy(() => import('../../components/LandingPage/RecentRecipe/recentRecipe'))
-const LatestRecipes = lazy(() => import('../../components/LandingPage/RecentRecipe/recentRecipe'))
-const Recipe = lazy(() => import('../../components/LandingPage/RecentRecipe/recentRecipe'))
-const Footer = lazy(() => import('../../components/LandingPage/RecentRecipe/recentRecipe'))
+// const MiniBlog = lazy(() => import('../../components/LandingPage/RecentRecipe/recentRecipe'))
+const LatestRecipes = lazy(() => import('../../components/LandingPage/LatestRecipes/latestRecipes'))
+const Recipe = lazy(() => import('../../components/LandingPage/Recipe/recipe'))
+const Footer = lazy(() => import('../../components/Global/Footer/footer'))
 // import RecentRecipe from '../../components/LandingPage/RecentRecipe/recentRecipe'
 // import Newsletter from '../../components/Global/Newsletter/newsletter'
 // import LargeBlog from '../../components/LandingPage/Blogs/largeBlog/largeBlog';

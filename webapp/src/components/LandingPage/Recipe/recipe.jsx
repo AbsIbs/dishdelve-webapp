@@ -1,10 +1,11 @@
 import styles from './styles.module.scss'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Recipe = (props) => {
   return (
     <a href={`/recipe/${props.id}`} className={styles.container} >
-      <img className={styles.image} src={props.imageURL} />
+      <LazyLoadImage className={styles.image} src={props.imageURL} />
       <div className={styles.contentContainer} >
         <div className={styles.categoryContainer} >
           <span className={styles.category}>{props.difficulty}</span>
